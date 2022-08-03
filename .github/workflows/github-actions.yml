@@ -13,6 +13,8 @@ on:
         required: true
       aws-secret-access-key:
         required: true
+      azure_credentials:
+        required: true
 
 jobs:
   aws:
@@ -40,3 +42,15 @@ jobs:
           cd src
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+  azure:
+    name: AZURE
+    if: inputs.cloud == 'azure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Configure AZURE Credentials
+        uses: aws-actions/conazure/login@v1
+        with:
+          creds: ${{ secrets.azure_credentials }}
