@@ -6,8 +6,6 @@ on:
         required: true
       aws-secret-access-key:
         required: true
-      aws-region:
-        required: true
 
 jobs:
   build:
