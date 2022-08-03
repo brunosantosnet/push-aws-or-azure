@@ -10,11 +10,11 @@ on:
         type: string
     secrets:
       aws-access-key-id:
-        required: true
+        required: false
       aws-secret-access-key:
-        required: true
+        required: false
       azure_credentials:
-        required: true
+        required: false
 
 jobs:
   aws:
