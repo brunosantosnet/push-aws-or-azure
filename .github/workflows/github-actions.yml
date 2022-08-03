@@ -16,8 +16,8 @@ on:
 
 jobs:
   aws:
-    if: ${{ inputs.cloud }} == 'azure'
     name: AWS
+    if: inputs.cloud == 'azure'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
