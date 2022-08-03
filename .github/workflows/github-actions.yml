@@ -5,6 +5,9 @@ on:
       repository:
         required: true
         type: string
+      cloud:
+        required: true
+        type: string
     secrets:
       aws-access-key-id:
         required: true
@@ -12,7 +15,8 @@ on:
         required: true
 
 jobs:
-  build:
+  aws:
+    if: ${{ inputs.cloud }} == "azure"
     name: AWS
     runs-on: ubuntu-latest
     steps:
