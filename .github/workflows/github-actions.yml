@@ -33,5 +33,6 @@ jobs:
           REPOSITORY: ${{ inputs.repository }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
+          cd src
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG src/Dockerfile
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
